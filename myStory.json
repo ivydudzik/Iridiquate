@@ -1,0 +1,49 @@
+{
+    "Title": "Planehopping",
+    "Credits": "Created by Ivy Dudzik.",
+    "InitialLocation": "Material Plane",
+    "Locations": {
+        "Material Plane": {
+            "Body": "This is the Material Plane, the world is quite tangible and in elemental harmony.",
+            "Choices": [
+                {
+                    "Text": "Project",
+                    "Target": "Astral Plane"
+                },
+                {
+                    "Text": "Dissipate",
+                    "Target": "Ethereal Plane"
+                }
+            ]
+        },
+        "Astral Plane": {
+            "Body": "This is the Astral Plane, the world is intangible but you can still sense your body.",
+            "Choices": [
+                {
+                    "Text": "Return",
+                    "Target": "Material Plane"
+                },
+                {
+                    "Text": "Escape",
+                    "Target": "Beyond"
+                }
+            ]
+        },
+        "Ethereal Plane": {
+            "Body": "This is the Ethereal Plane, the world is intangible and you are beginning to lose your sense of self.",
+            "Choices": [
+                {
+                    "Text": "Coalesce",
+                    "Target": "Material Plane"
+                },
+                {
+                    "Text": "Escape",
+                    "Target": "Beyond"
+                }
+            ]
+        },
+        "Beyond": {
+            "Body": "We cannot know what exists beyond the planes..."
+        }
+    }
+}

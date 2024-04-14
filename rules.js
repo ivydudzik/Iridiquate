@@ -5,7 +5,7 @@ class Start extends Scene {
     }
 
     handleChoice() {
-        this.engine.gotoScene(Location, this.engine.storyData.InitialLocation);
+        this.engine.gotoScene(BombLocation, this.engine.storyData.InitialLocation); // InitialLocation is first BombLocation
     }
 }
 
@@ -26,8 +26,7 @@ class Location extends Scene {
     handleChoice(choice) {
         if (choice) {
             this.engine.show("&gt; " + choice.Text);
-            this.engine.gotoScene(Location, choice.Target);
-            if (choice.IsBombLocation == true) {
+            if (choice.IsBombLocation) {
                 console.log("this is a bomb location!")
                 this.engine.gotoScene(BombLocation, choice.Target);
             } else {
@@ -44,10 +43,12 @@ class BombLocation extends Location {
     handleChoice(choice) {
         console.log("this is a bomb location handling a choice!")
         if (choice) {
-            if (choice.Interaction) {
+            if (choice.IsBombPlant) {
                 this.engine.show("&gt; " + choice.Text);
-                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;/// MESSY TRYING TO FIGURE OUT HOW COME IT HAPPENS TWICE AND HOW TO CHANGE STORYDATA ON THE FLY
-                this.engine.gotoScene(Location, choice.Target);
+                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;
+                this.engine.storyData.Locations[choice.Target].Choices.splice(this.engine.storyData.Locations[choice.Target].Choices.indexOf(choice), 1);
+                this.engine.bombSitesRemaining -= 1;
+                this.engine.gotoScene(BombLocation, choice.Target);
             } else {
                 this.engine.show("&gt; " + choice.Text);
                 this.engine.gotoScene(Location, choice.Target);
@@ -65,4 +66,5 @@ class End extends Scene {
     }
 }
 
-Engine.load(Start, 'myStory.json'); // Creates Engine Instance and Starts Game
+const numberOfBombsToPlant = 4;
+Engine.load(Start, 'myStory.json', numberOfBombsToPlant); // Creates Engine Instance and Starts Game

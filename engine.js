@@ -4,10 +4,11 @@ class Engine {
         window.onload = () => new Engine(...args);
     }
 
-    constructor(firstSceneClass, storyDataUrl) {
+    constructor(firstSceneClass, storyDataUrl, bombSiteCount) {
 
         this.firstSceneClass = firstSceneClass;
         this.storyDataUrl = storyDataUrl;
+        this.bombSitesRemaining = bombSiteCount;
 
         this.header = document.body.appendChild(document.createElement("h1"));
         this.output = document.body.appendChild(document.createElement("div"));
@@ -32,7 +33,7 @@ class Engine {
         let button = this.actionsContainer.appendChild(document.createElement("button"));
         button.innerText = action;
         button.onclick = () => {
-            while(this.actionsContainer.firstChild) {
+            while (this.actionsContainer.firstChild) {
                 this.actionsContainer.removeChild(this.actionsContainer.firstChild)
             }
             this.scene.handleChoice(data);

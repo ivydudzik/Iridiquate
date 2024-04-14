@@ -13,6 +13,12 @@
                 {
                     "Text": "The Cliff",
                     "Target": "The Cliff"
+                },
+                {
+                    "Text": "Affix Explosives",
+                    "IsBombPlant": true,
+                    "Target": "The Beach",
+                    "NewBody": "This is The Beach with Explosives"
                 }
             ]
         },
@@ -21,11 +27,13 @@
             "Choices": [
                 {
                     "Text": "The Beach",
-                    "Target": "The Beach"
+                    "Target": "The Beach",
+                    "IsBombLocation": true
                 },
                 {
                     "Text": "The Cove",
-                    "Target": "The Cove"
+                    "Target": "The Cove",
+                    "IsBombLocation": true
                 },
                 {
                     "Text": "The Clearing",
@@ -48,6 +56,12 @@
                 {
                     "Text": "The Reef",
                     "Target": "The Reef"
+                },
+                {
+                    "Text": "Affix Explosives",
+                    "IsBombPlant": true,
+                    "Target": "The Cove",
+                    "NewBody": "This is The Cove with Explosives"
                 }
             ]
         },
@@ -70,7 +84,7 @@
                 },
                 {
                     "Text": "Affix Explosives",
-                    "Interaction": true,
+                    "IsBombPlant": true,
                     "Target": "The Clearing",
                     "NewBody": "This is The Clearing with Explosives"
                 }
@@ -81,7 +95,8 @@
             "Choices": [
                 {
                     "Text": "The Beach",
-                    "Target": "The Beach"
+                    "Target": "The Beach",
+                    "IsBombLocation": true
                 },
                 {
                     "Text": "The Clearing",
@@ -95,7 +110,8 @@
             "Choices": [
                 {
                     "Text": "The Mount",
-                    "Target": "The Mount"
+                    "Target": "The Mount",
+                    "IsBombLocation": true
                 }
             ]
         },
@@ -105,6 +121,12 @@
                 {
                     "Text": "The Den",
                     "Target": "The Den"
+                },
+                {
+                    "Text": "Affix Explosives",
+                    "IsBombPlant": true,
+                    "Target": "The Mount",
+                    "NewBody": "This is The Mount with Explosives"
                 }
             ]
         },

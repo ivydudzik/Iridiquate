@@ -1,49 +1,130 @@
 {
-    "Title": "Planehopping",
+    "Title": "Iridiquate",
     "Credits": "Created by Ivy Dudzik.",
-    "InitialLocation": "Material Plane",
+    "InitialLocation": "The Beach",
     "Locations": {
-        "Material Plane": {
-            "Body": "This is the Material Plane, the world is quite tangible and in elemental harmony.",
+        "The Beach": {
+            "Body": "This is The Beach",
             "Choices": [
                 {
-                    "Text": "Project",
-                    "Target": "Astral Plane"
+                    "Text": "The Rainforest",
+                    "Target": "The Rainforest"
                 },
                 {
-                    "Text": "Dissipate",
-                    "Target": "Ethereal Plane"
+                    "Text": "The Cliff",
+                    "Target": "The Cliff"
                 }
             ]
         },
-        "Astral Plane": {
-            "Body": "This is the Astral Plane, the world is intangible but you can still sense your body.",
+        "The Rainforest": {
+            "Body": "This is The Rainforest",
             "Choices": [
                 {
-                    "Text": "Return",
-                    "Target": "Material Plane"
+                    "Text": "The Beach",
+                    "Target": "The Beach"
                 },
                 {
-                    "Text": "Escape",
-                    "Target": "Beyond"
+                    "Text": "The Cove",
+                    "Target": "The Cove"
+                },
+                {
+                    "Text": "The Clearing",
+                    "Target": "The Clearing",
+                    "IsBombLocation": true
+                },
+                {
+                    "Text": "The Pit",
+                    "Target": "The Pit"
                 }
             ]
         },
-        "Ethereal Plane": {
-            "Body": "This is the Ethereal Plane, the world is intangible and you are beginning to lose your sense of self.",
+        "The Cove": {
+            "Body": "This is The Cove",
             "Choices": [
                 {
-                    "Text": "Coalesce",
-                    "Target": "Material Plane"
+                    "Text": "The Rainforest",
+                    "Target": "The Rainforest"
                 },
                 {
-                    "Text": "Escape",
-                    "Target": "Beyond"
+                    "Text": "The Reef",
+                    "Target": "The Reef"
                 }
             ]
         },
-        "Beyond": {
-            "Body": "We cannot know what exists beyond the planes..."
+        "The Reef": {
+            "Body": "This is The Reef",
+            "Choices": [
+                {
+                    "Text": "The Clearing",
+                    "Target": "The Clearing",
+                    "IsBombLocation": true
+                }
+            ]
+        },
+        "The Clearing": {
+            "Body": "This is The Clearing",
+            "Choices": [
+                {
+                    "Text": "The Rainforest",
+                    "Target": "The Rainforest"
+                },
+                {
+                    "Text": "Affix Explosives",
+                    "Interaction": true,
+                    "Target": "The Clearing",
+                    "NewBody": "This is The Clearing with Explosives"
+                }
+            ]
+        },
+        "The Cliff": {
+            "Body": "This is The Cliff",
+            "Choices": [
+                {
+                    "Text": "The Beach",
+                    "Target": "The Beach"
+                },
+                {
+                    "Text": "The Clearing",
+                    "Target": "The Clearing",
+                    "IsBombLocation": true
+                }
+            ]
+        },
+        "The Pit": {
+            "Body": "This is The Pit",
+            "Choices": [
+                {
+                    "Text": "The Mount",
+                    "Target": "The Mount"
+                }
+            ]
+        },
+        "The Mount": {
+            "Body": "This is The Mount",
+            "Choices": [
+                {
+                    "Text": "The Den",
+                    "Target": "The Den"
+                }
+            ]
+        },
+        "The Den": {
+            "Body": "This is The Den",
+            "Choices": [
+                {
+                    "Text": "The Rainforest",
+                    "Target": "The Rainforest"
+                }
+            ]
+        },
+        "The Sea": {
+            "Body": "This is The Den",
+            "Choices": [
+                {
+                    "Text": "Detonate Explosives",
+                    "Condition": "allExplosivesPlaced"
+                }
+            ]
         }
     }
 }

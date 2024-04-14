@@ -29,9 +29,12 @@ class Location extends Scene {
             if (choice.IsBombLocation) {
                 console.log("this is a bomb location!")
                 this.engine.gotoScene(BombLocation, choice.Target);
+            } else if (choice.IsDetonationLocation) {
+                console.log("this is a detonation location!")
+                this.engine.gotoScene(DetonationLocation, choice.Target);
             } else {
+                console.log("this is a normal location!")
                 this.engine.gotoScene(Location, choice.Target);
-
             }
         } else {
             this.engine.gotoScene(End);
@@ -51,7 +54,62 @@ class BombLocation extends Location {
                 this.engine.gotoScene(BombLocation, choice.Target);
             } else {
                 this.engine.show("&gt; " + choice.Text);
-                this.engine.gotoScene(Location, choice.Target);
+                if (choice.IsBombLocation) {
+                    console.log("this is a bomb location!")
+                    this.engine.gotoScene(BombLocation, choice.Target);
+                } else if (choice.IsDetonationLocation) {
+                    console.log("this is a detonation location!")
+                    this.engine.gotoScene(DetonationLocation, choice.Target);
+                } else {
+                    console.log("this is a normal location!")
+                    this.engine.gotoScene(Location, choice.Target);
+                }
+            }
+        } else {
+            this.engine.gotoScene(End);
+        }
+    }
+}
+
+class DetonationLocation extends Location {
+    create(key) {
+        let locationData = this.engine.storyData.Locations[key];
+        this.engine.show(locationData.Body);
+
+        if (locationData.Choices) {
+            for (let choice of locationData.Choices) {
+                if (choice.IsBombDetonation) {
+                    if (this.engine.bombSitesRemaining == 0)
+                        this.engine.addChoice(choice.Text, choice);
+                } else {
+                    this.engine.addChoice(choice.Text, choice);
+                }
+
+            }
+        } else {
+            this.engine.addChoice("The end.")
+        }
+    }
+    handleChoice(choice) {
+        console.log("this is a detonation location handling a choice!")
+        if (choice) {
+            if (choice.IsBombDetonation) {
+                this.engine.show("&gt; " + choice.Text);
+                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;
+                this.engine.storyData.Locations[choice.Target].Choices = null; // .splice(0, this.engine.storyData.Locations[choice.Target].Choices.length)
+                this.engine.gotoScene(DetonationLocation, choice.Target);
+            } else {
+                this.engine.show("&gt; " + choice.Text);
+                if (choice.IsBombLocation) {
+                    console.log("this is a bomb location!")
+                    this.engine.gotoScene(BombLocation, choice.Target);
+                } else if (choice.IsDetonationLocation) {
+                    console.log("this is a detonation location!")
+                    this.engine.gotoScene(DetonationLocation, choice.Target);
+                } else {
+                    console.log("this is a normal location!")
+                    this.engine.gotoScene(Location, choice.Target);
+                }
             }
         } else {
             this.engine.gotoScene(End);

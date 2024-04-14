@@ -15,6 +15,11 @@
                     "Target": "The Cliff"
                 },
                 {
+                    "Text": "The Sea",
+                    "Target": "The Sea",
+                    "IsDetonationLocation": true
+                },
+                {
                     "Text": "Affix Explosives",
                     "IsBombPlant": true,
                     "Target": "The Beach",
@@ -140,11 +145,18 @@
             ]
         },
         "The Sea": {
-            "Body": "This is The Den",
+            "Body": "This is The Sea",
             "Choices": [
                 {
+                    "Text": "The Beach",
+                    "Target": "The Beach",
+                    "IsBombLocation": true
+                },
+                {
                     "Text": "Detonate Explosives",
-                    "Condition": "allExplosivesPlaced"
+                    "IsBombDetonation": true,
+                    "Target": "The Sea",
+                    "NewBody": "This is The Sea and The Island is Destroyed"
                 }
             ]
         }

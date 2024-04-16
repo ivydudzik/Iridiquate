@@ -15,11 +15,6 @@
                     "Target": "The Cliff"
                 },
                 {
-                    "Text": "The Sea",
-                    "Target": "The Sea",
-                    "IsDetonationLocation": true
-                },
-                {
                     "Text": "Affix Explosives",
                     "IsBombPlant": true,
                     "Target": "The Beach",
@@ -141,6 +136,11 @@
                 {
                     "Text": "The Rainforest",
                     "Target": "The Rainforest"
+                },
+                {
+                    "Text": "The Shed",
+                    "Target": "The Shed",
+                    "IsKeyLocation": true
                 }
             ]
         },
@@ -157,6 +157,29 @@
                     "IsBombDetonation": true,
                     "Target": "The Sea",
                     "NewBody": "This is The Sea and The Island is Destroyed"
+                }
+            ]
+        },
+        "The Shed": {
+            "Body": "This is The Shed and There is a Boat",
+            "Choices": [
+                {
+                    "Text": "The Beach",
+                    "Target": "The Beach",
+                    "IsBombLocation": true
+                },
+                {
+                    "Text": "Collect Boat",
+                    "IsCollectBoat": true,
+                    "Target": "The Shed",
+                    "Door": "The Beach",
+                    "NewBody": "This is The Shed and the Boat is Collected",
+                    "AdditionalDoorBody": " Your boat waits at the surf's edge.",
+                    "AdditionalDoorChoice": {
+                        "Text": "The Sea",
+                        "Target": "The Sea",
+                        "IsDetonationLocation": true
+                    }
                 }
             ]
         }

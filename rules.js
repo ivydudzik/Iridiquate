@@ -26,18 +26,25 @@ class Location extends Scene {
     handleChoice(choice) {
         if (choice) {
             this.engine.show("&gt; " + choice.Text);
-            if (choice.IsBombLocation) {
-                console.log("this is a bomb location!")
-                this.engine.gotoScene(BombLocation, choice.Target);
-            } else if (choice.IsDetonationLocation) {
-                console.log("this is a detonation location!")
-                this.engine.gotoScene(DetonationLocation, choice.Target);
-            } else {
-                console.log("this is a normal location!")
-                this.engine.gotoScene(Location, choice.Target);
-            }
+            this.filterGoTo(choice);
         } else {
             this.engine.gotoScene(End);
+        }
+    }
+
+    filterGoTo(choice) {
+        if (choice.IsBombLocation) {
+            console.log("this is a bomb location!")
+            this.engine.gotoScene(BombLocation, choice.Target);
+        } else if (choice.IsDetonationLocation) {
+            console.log("this is a detonation location!")
+            this.engine.gotoScene(DetonationLocation, choice.Target);
+        } else if (choice.IsKeyLocation) {
+            console.log("this is a key location!")
+            this.engine.gotoScene(KeyLocation, choice.Target);
+        } else {
+            console.log("this is a normal location!")
+            this.engine.gotoScene(Location, choice.Target);
         }
     }
 }
@@ -54,16 +61,29 @@ class BombLocation extends Location {
                 this.engine.gotoScene(BombLocation, choice.Target);
             } else {
                 this.engine.show("&gt; " + choice.Text);
-                if (choice.IsBombLocation) {
-                    console.log("this is a bomb location!")
-                    this.engine.gotoScene(BombLocation, choice.Target);
-                } else if (choice.IsDetonationLocation) {
-                    console.log("this is a detonation location!")
-                    this.engine.gotoScene(DetonationLocation, choice.Target);
-                } else {
-                    console.log("this is a normal location!")
-                    this.engine.gotoScene(Location, choice.Target);
-                }
+                this.filterGoTo(choice);
+            }
+        } else {
+            this.engine.gotoScene(End);
+        }
+    }
+}
+
+class KeyLocation extends Location {
+    handleChoice(choice) {
+        console.log("this is a key location handling a choice!")
+        if (choice) {
+            if (choice.IsCollectBoat) {
+                this.engine.show("&gt; " + choice.Text);
+                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;
+                this.engine.storyData.Locations[choice.Door].Body = this.engine.storyData.Locations[choice.Door].Body.concat(choice.AdditionalDoorBody);
+                this.engine.storyData.Locations[choice.Door].Choices.push(this.engine.storyData.Locations[choice.Target].AdditionalDoorChoice);
+                this.engine.storyData.Locations[choice.Target].Choices.splice(this.engine.storyData.Locations[choice.Target].Choices.indexOf(choice), 1);
+                this.engine.boatCollected = true;
+                this.engine.gotoScene(KeyLocation, choice.Target);
+            } else {
+                this.engine.show("&gt; " + choice.Text);
+                this.filterGoTo(choice);
             }
         } else {
             this.engine.gotoScene(End);
@@ -100,16 +120,7 @@ class DetonationLocation extends Location {
                 this.engine.gotoScene(DetonationLocation, choice.Target);
             } else {
                 this.engine.show("&gt; " + choice.Text);
-                if (choice.IsBombLocation) {
-                    console.log("this is a bomb location!")
-                    this.engine.gotoScene(BombLocation, choice.Target);
-                } else if (choice.IsDetonationLocation) {
-                    console.log("this is a detonation location!")
-                    this.engine.gotoScene(DetonationLocation, choice.Target);
-                } else {
-                    console.log("this is a normal location!")
-                    this.engine.gotoScene(Location, choice.Target);
-                }
+                this.filterGoTo(choice);
             }
         } else {
             this.engine.gotoScene(End);

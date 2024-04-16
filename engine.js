@@ -9,6 +9,7 @@ class Engine {
         this.firstSceneClass = firstSceneClass;
         this.storyDataUrl = storyDataUrl;
         this.bombSitesRemaining = bombSiteCount;
+        this.boatCollected = false;
 
         this.header = document.body.appendChild(document.createElement("h1"));
         this.output = document.body.appendChild(document.createElement("div"));

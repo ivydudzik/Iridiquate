@@ -15,6 +15,7 @@ class Location extends Scene {
         this.engine.show(locationData.Body);
 
         if (locationData.Choices) {
+            console.log("choices for ", key, " ", locationData.Choices);
             for (let choice of locationData.Choices) {
                 this.engine.addChoice(choice.Text, choice);
             }
@@ -74,11 +75,13 @@ class KeyLocation extends Location {
         console.log("this is a key location handling a choice!")
         if (choice) {
             if (choice.IsCollectBoat) {
+                let targetLocation = this.engine.storyData.Locations[choice.Target];
+                let doorLocation = this.engine.storyData.Locations[choice.Door];
                 this.engine.show("&gt; " + choice.Text);
-                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;
-                this.engine.storyData.Locations[choice.Door].Body = this.engine.storyData.Locations[choice.Door].Body.concat(choice.AdditionalDoorBody);
-                this.engine.storyData.Locations[choice.Door].Choices.push(this.engine.storyData.Locations[choice.Target].AdditionalDoorChoice);
-                this.engine.storyData.Locations[choice.Target].Choices.splice(this.engine.storyData.Locations[choice.Target].Choices.indexOf(choice), 1);
+                targetLocation.Body = choice.NewBody;
+                doorLocation.Body = doorLocation.Body.concat(choice.AdditionalDoorBody);
+                doorLocation.Choices.push(targetLocation.Choices[targetLocation.Choices.indexOf(choice)].AdditionalDoorChoice);
+                targetLocation.Choices.splice(targetLocation.Choices.indexOf(choice), 1);
                 this.engine.boatCollected = true;
                 this.engine.gotoScene(KeyLocation, choice.Target);
             } else {

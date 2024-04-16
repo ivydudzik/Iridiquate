@@ -4,7 +4,7 @@
     "InitialLocation": "The Beach",
     "Locations": {
         "The Beach": {
-            "Body": "You stand on <b>The Beach</b>. <br>Glimmering seas shine to the east and a dense rainforest glowers from the west. <br>Unbroken beach follows the coastline south, while a slowly climbing path meanders up north, leading to high bluffs. <br>This would be a beautiful place for a ",
+            "Body": "You stand on <b>The Beach</b>. <br>Glimmering seas shine to the east and a dense rainforest glowers from the west. <br>Unbroken beach follows the coastline south, while a slowly climbing path meanders up north, leading to high bluffs. <br>This would be a beautiful place to plant your first bomb.",
             "Choices": [
                 {
                     "Text": "The Rainforest",

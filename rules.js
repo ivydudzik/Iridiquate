@@ -56,7 +56,7 @@ class BombLocation extends Location {
         if (choice) {
             if (choice.IsBombPlant) {
                 this.engine.show("&gt; " + choice.Text);
-                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;
+                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody; // make this additive!!!
                 this.engine.storyData.Locations[choice.Target].Choices.splice(this.engine.storyData.Locations[choice.Target].Choices.indexOf(choice), 1);
                 this.engine.bombSitesRemaining -= 1;
                 this.engine.gotoScene(BombLocation, choice.Target);

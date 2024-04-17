@@ -4,7 +4,7 @@
     "InitialLocation": "The Beach",
     "Locations": {
         "The Beach": {
-            "Body": "You stand on <b>The Beach</b>. <br>Glimmering seas shine to the east and a dense rainforest glowers from the west. <br>Unbroken beach follows the coastline south, while a slowly climbing path meanders up north, leading to high bluffs. <br>This would be a beautiful place to plant your first bomb.",
+            "Body": "You stand on <b>The Beach</b>. <br>Glimmering seas shine to the east and a dense rainforest watches you from the west. <br>The unbroken beach follows the coastline south, while a path of dirt and sand meanders up north, leading to high bluffs. <br>This would be a beautiful place to drive your first bomb into the earth of the island.",
             "Choices": [
                 {
                     "Text": "The Rainforest",
@@ -15,15 +15,15 @@
                     "Target": "The Cliff"
                 },
                 {
-                    "Text": "Affix Explosives",
+                    "Text": "Plant Explosives",
                     "IsBombPlant": true,
                     "Target": "The Beach",
-                    "NewBody": "This is The Beach with Explosives"
+                    "NewBody": "You stand on <b>The Beach</b>. <br>Glimmering seas shine to the east and a dense rainforest watches you from the west. <br>The unbroken beach follows the coastline south, while a path of dirt and sand meanders up north, leading to high bluffs. <br><b>Your bomb, a silver pillar of dormant incendiary power, sticks out of the sand like a sore thumb.</b>"
                 }
             ]
         },
         "The Rainforest": {
-            "Body": "This is The Rainforest",
+            "Body": "You creep through <b>The Rainforest</b>. <br>This forest path connects the turquoise sea on both sides, with the bright beach to the east and a shaded cove down a sharp incline to the west. <br>Similarly, daylight filters through the trees to the north, while the southern reaches of the rainforest are dark.",
             "Choices": [
                 {
                     "Text": "The Beach",
@@ -47,26 +47,22 @@
             ]
         },
         "The Cove": {
-            "Body": "This is The Cove",
+            "Body": "You wade across <b>The Cove</b>. <br>The inclined path you slid down to arrive here cannot be scaled, but luckily there seems to be a shallow reef protecting this side of the island from harsh waves, providing a path to the northwest, around the island. <br>A wide stone plateau, thrust out from the center of the cove, would be the perfect spot to place a warhead.",
             "Choices": [
-                {
-                    "Text": "The Rainforest",
-                    "Target": "The Rainforest"
-                },
                 {
                     "Text": "The Reef",
                     "Target": "The Reef"
                 },
                 {
-                    "Text": "Affix Explosives",
+                    "Text": "Plant Explosives",
                     "IsBombPlant": true,
                     "Target": "The Cove",
-                    "NewBody": "This is The Cove with Explosives"
+                    "NewBody": "You wade across <b>The Cove</b>. <br>The inclined path you slid down to arrive here cannot be scaled, but luckily there seems to be a shallow reef protecting this side of the island from harsh waves, providing a path to the northwest, around the island. <br><b>The wide stone plateau in the center of the cove  is now home to a hideous silver statue with one fourth of the destructive power required to level the island.</b>"
                 }
             ]
         },
         "The Reef": {
-            "Body": "This is The Reef",
+            "Body": "You trudge through <b>The Reef</b>, thick leather boots protecting you from the sharp coral. <br>The only way out of the fragile ecosystem is via a small, muddy beach that leads to a clearing in the rainforest.",
             "Choices": [
                 {
                     "Text": "The Clearing",
@@ -83,7 +79,7 @@
                     "Target": "The Rainforest"
                 },
                 {
-                    "Text": "Affix Explosives",
+                    "Text": "Plant Explosives",
                     "IsBombPlant": true,
                     "Target": "The Clearing",
                     "NewBody": "This is The Clearing with Explosives"
@@ -123,7 +119,7 @@
                     "Target": "The Den"
                 },
                 {
-                    "Text": "Affix Explosives",
+                    "Text": "Plant Explosives",
                     "IsBombPlant": true,
                     "Target": "The Mount",
                     "NewBody": "This is The Mount with Explosives"
@@ -174,7 +170,7 @@
                     "Target": "The Shed",
                     "Door": "The Beach",
                     "NewBody": "This is The Shed and the Boat is Collected",
-                    "AdditionalDoorBody": " Your boat waits at the surf's edge.",
+                    "AdditionalDoorBody": " <br>Your boat waits at the surf's edge.",
                     "AdditionalDoorChoice": {
                         "Text": "The Sea",
                         "Target": "The Sea",

@@ -55,9 +55,15 @@ class BombLocation extends Location {
         console.log("this is a bomb location handling a choice!")
         if (choice) {
             if (choice.IsBombPlant) {
+                let targetLocation = this.engine.storyData.Locations[choice.Target];
                 this.engine.show("&gt; " + choice.Text);
-                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody; // make this additive!!!
-                this.engine.storyData.Locations[choice.Target].Choices.splice(this.engine.storyData.Locations[choice.Target].Choices.indexOf(choice), 1);
+                console.log("new body text: ", targetLocation.Body.concat(choice.NewBody))
+                if (this.engine.boatCollected == true && choice.Target == "The Beach") { // Unglamously handle edge case where explosives are affixed to beach after the boat is collected.
+                    targetLocation.Body = choice.NewBody + " <br>Your boat waits at the surf's edge.";
+                } else {
+                    targetLocation.Body = choice.NewBody;
+                }
+                targetLocation.Choices.splice(targetLocation.Choices.indexOf(choice), 1);
                 this.engine.bombSitesRemaining -= 1;
                 this.engine.gotoScene(BombLocation, choice.Target);
             } else {
@@ -117,9 +123,11 @@ class DetonationLocation extends Location {
         console.log("this is a detonation location handling a choice!")
         if (choice) {
             if (choice.IsBombDetonation) {
+                let targetLocation = this.engine.storyData.Locations[choice.Target];
+
                 this.engine.show("&gt; " + choice.Text);
-                this.engine.storyData.Locations[choice.Target].Body = choice.NewBody;
-                this.engine.storyData.Locations[choice.Target].Choices = null; // .splice(0, this.engine.storyData.Locations[choice.Target].Choices.length)
+                targetLocation.Body = choice.NewBody;
+                targetLocation.Choices = null; // .splice(0, this.engine.storyData.Locations[choice.Target].Choices.length)
                 this.engine.gotoScene(DetonationLocation, choice.Target);
             } else {
                 this.engine.show("&gt; " + choice.Text);

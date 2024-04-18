@@ -72,7 +72,7 @@
             ]
         },
         "The Clearing": {
-            "Body": "This is The Clearing",
+            "Body": "You find a quiet moment in <b>The Clearing</b>. <br> A serene path leads into the rainforest to the south. <br>A vibrant bluebird hops around the soft, fern-covered ground. <br>It would look much better eclipsed by the shadow of a bombshell.",
             "Choices": [
                 {
                     "Text": "The Rainforest",
@@ -82,12 +82,12 @@
                     "Text": "Plant Explosives",
                     "IsBombPlant": true,
                     "Target": "The Clearing",
-                    "NewBody": "This is The Clearing with Explosives"
+                    "NewBody": "You find a quiet moment in <b>The Clearing</b>. <br> A serene path leads into the rainforest to the south. <br><b>A massive explosive, the very vision of death, sits unmoving in the center of the meadow. </b>"
                 }
             ]
         },
         "The Cliff": {
-            "Body": "This is The Cliff",
+            "Body": "You stride along <b>The Cliff</b>. <br>Cool mists roll over the edge and cover this stunning overlook, burning off as they drift towards the sunny beach to the south.  <br>A steep ledge–just low enough to leap from–cuts the cliff off in the west, just ahead of  a clearing in the rainforest below.",
             "Choices": [
                 {
                     "Text": "The Beach",
@@ -102,8 +102,12 @@
             ]
         },
         "The Pit": {
-            "Body": "This is The Pit",
+            "Body": "You tiptoe around <b>The Pit</b>, a yawning maw that exhales cold breaths out of the dark earth. <br>The ground to the south seems to be steadily rising, while the path north leads back to the rainforest’s heart.",
             "Choices": [
+                {
+                    "Text": "The Rainforest",
+                    "Target": "The Rainforest"
+                },
                 {
                     "Text": "The Mount",
                     "Target": "The Mount",
@@ -112,8 +116,12 @@
             ]
         },
         "The Mount": {
-            "Body": "This is The Mount",
+            "Body": "You bask in the awe of <b>The Mount</b>. <br>This long-dead volcanic corpse is now a huge, flat-topped expanse of black sand that rises out of the southern side of the island.  <br>Two paths are visible down the north side of the mount, one leading into the forest and another steep path leading towards a large rock formation among the palms on the east side of the island. <br>This grand altar would be the perfect place to sacrifice your most magnificent explosive.",
             "Choices": [
+                {
+                    "Text": "The Pit",
+                    "Target": "The Pit"
+                },
                 {
                     "Text": "The Den",
                     "Target": "The Den"
@@ -122,12 +130,12 @@
                     "Text": "Plant Explosives",
                     "IsBombPlant": true,
                     "Target": "The Mount",
-                    "NewBody": "This is The Mount with Explosives"
+                    "NewBody": "You bask in the awe of <b>The Mount</b>. <br>This long-dead volcanic corpse is now a huge, flat-topped expanse of black sand that rises out of the southern side of the island.  <br>Two paths are visible down the north side of the mount, one leading into the forest and another steep path leading towards a large rock formation among the palms on the east side of the island. <br><b>Five tons of pure death reach up from the center of the mount, begging for their imminent detonation.</b>"
                 }
             ]
         },
         "The Den": {
-            "Body": "This is The Den",
+            "Body": "You stalk into <b>The Den</b>, a long abandoned bestial abode. <br>Canine fur is caught amongst the sharp edges of the rock walls, and two paths emerge from the darkness of the cave, one leading back into the forest, and one out among the palms.",
             "Choices": [
                 {
                     "Text": "The Rainforest",
@@ -141,7 +149,7 @@
             ]
         },
         "The Sea": {
-            "Body": "This is The Sea",
+            "Body": "You rise and fall gently in <b>The Sea</b>, your boat keeping you dry. <br>At this distance, the island looks like it was built for fairies… or dolls.  <br>With each of the bombs placed upon on the island, you can detonate the explosives from here.",
             "Choices": [
                 {
                     "Text": "The Beach",
@@ -152,12 +160,12 @@
                     "Text": "Detonate Explosives",
                     "IsBombDetonation": true,
                     "Target": "The Sea",
-                    "NewBody": "This is The Sea and The Island is Destroyed"
+                    "NewBody": "You are captivated by the death throes of <b>The Island</b>. <br><b>Massive waves emanate from the explosion, grabbing vicious hold of your boat. <br>Hellfire rains from the sky, obscuring the sun with ash. <br>You know, in your heart: <i>it was worth it.</i><b>"
                 }
             ]
         },
         "The Shed": {
-            "Body": "This is The Shed and There is a Boat",
+            "Body": "You marvel at <b>The Shed</b>, the only sign of sapient intervention on the island. <br>It has been constructed out of palm wood and tightly woven plant fibers, maybe 1 year ago or maybe 100.  <br>The shed houses a single row boat in perfect condition.",
             "Choices": [
                 {
                     "Text": "The Beach",
@@ -169,7 +177,7 @@
                     "IsCollectBoat": true,
                     "Target": "The Shed",
                     "Door": "The Beach",
-                    "NewBody": "This is The Shed and the Boat is Collected",
+                    "NewBody": "You marvel at <b>The Shed</b>, the only sign of sapient intervention on the island. <br>It has been constructed out of palm wood and tightly woven plant fibers, maybe 1 year ago or maybe 100.  <br><b>The shed once housed a row boat, until you dragged it off to the beach.</b>",
                     "AdditionalDoorBody": " <br>Your boat waits at the surf's edge.",
                     "AdditionalDoorChoice": {
                         "Text": "The Sea",
